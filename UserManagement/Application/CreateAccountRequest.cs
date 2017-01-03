@@ -1,4 +1,6 @@
-﻿using UserManagement.Domain;
+﻿using Common;
+using Journalist;
+using UserManagement.Domain;
 
 namespace UserManagement.Application
 {
@@ -10,6 +12,11 @@ namespace UserManagement.Application
             string password,
             string email)
         {
+            Require.NotNull(email, nameof(email));
+            Require.NotEmpty(lastname, nameof(lastname));
+            Require.NotEmpty(firstname, nameof(firstname));
+            Require.NotEmpty(password, nameof(password));
+
             Email = email;
             Lastname = lastname;
             Firstname = firstname;

@@ -1,6 +1,7 @@
 ﻿using SimpleInjector;
 using System.Web.Http;
 using DataAccess;
+using DataAccess.NHibernate;
 using DataAccess.Repositories;
 using SimpleInjector.Integration.WebApi;
 using UserManagement.Application;
@@ -25,6 +26,7 @@ namespace Frontend.App_Start
         {
             container.Register<IUserRepository, UserRepository>();
             container.Register<IUserManager, UserManager>();
+            container.Register<ISessionProvider, SessionProvider>();
             container.Register<NHibernateHelper>(() => new NHibernateHelper());
         }
     }

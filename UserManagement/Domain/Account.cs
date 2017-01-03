@@ -1,4 +1,5 @@
 ﻿using System;
+using Common;
 using Journalist;
 
 namespace UserManagement.Domain
@@ -8,7 +9,7 @@ namespace UserManagement.Domain
         public Account(string firstname,
             string lastname,
             string email,
-            string password,
+            Password password,
             DateTime registrationTime)
         {
             Require.NotEmpty(firstname, nameof(firstname));
@@ -36,7 +37,7 @@ namespace UserManagement.Domain
 
         public virtual string Email { get; protected set; }
 
-        public virtual string Password { get; set; }
+        public virtual Password Password { get; set; }
 
         public virtual DateTime RegistrationTime { get; protected set; }
 

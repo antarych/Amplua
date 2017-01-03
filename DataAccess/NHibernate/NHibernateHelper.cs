@@ -24,7 +24,7 @@ namespace DataAccess
             HbmMapping mapping = mapper.CompileMappingForAllExplicitlyAddedEntities();
             cfg.AddMapping(mapping);
             new SchemaUpdate(cfg).Execute(true, true);
-            ISessionFactory sessionFactory = cfg.BuildSessionFactory();
+            var sessionFactory = cfg.BuildSessionFactory();
             return sessionFactory.OpenSession();
         }
 

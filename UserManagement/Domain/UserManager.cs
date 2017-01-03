@@ -1,4 +1,5 @@
 ﻿using System;
+using Common;
 using UserManagement.Application;
 using UserManagement.Infrastructure;
 using Journalist;
@@ -23,7 +24,7 @@ namespace UserManagement.Domain
                 request.Firstname,
                 request.Lastname,
                 request.Email,
-                request.Password,
+                Password.FromPlainString(request.Password),
                 DateTime.Now);
             var userId = _userRepository.CreateAccount(newAccount);
         }

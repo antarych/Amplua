@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Http;
-using System.Web.Routing;
+﻿using System.Web.Http;
+using Frontend.App_Start;
 
 namespace Frontend
 {
@@ -11,6 +7,9 @@ namespace Frontend
     {
         protected void Application_Start()
         {
+            var bootstraper = new Bootstrapper();
+            bootstraper.Setup();
+
             GlobalConfiguration.Configure(WebApiConfig.Register);
         }
     }
