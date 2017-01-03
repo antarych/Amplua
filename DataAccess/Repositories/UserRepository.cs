@@ -2,6 +2,7 @@
 using Journalist;
 using UserManagement.Infrastructure;
 using UserManagement.Domain;
+using  DataAccess.Mappings;
 
 namespace DataAccess.Repositories
 {
@@ -11,6 +12,7 @@ namespace DataAccess.Repositories
 
         public UserRepository(ISessionProvider sessionProvider)
         {
+            Require.NotNull(sessionProvider, nameof(sessionProvider));
             _sessionProvider = sessionProvider;
         }
 
