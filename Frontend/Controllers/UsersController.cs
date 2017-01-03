@@ -1,6 +1,7 @@
 ﻿using System.Web.Http;
 using UserManagement.Application;
 using Frontend.Models;
+using UserManagement.Domain;
 
 namespace Frontend.Controllers
 {
@@ -33,6 +34,13 @@ namespace Frontend.Controllers
             _userManager.CreateUser(accountRequest);
 
             return Ok();
+        }
+
+        [HttpGet]
+        [Route("user/{id}")]
+        public Account GetUser(int id)
+        {
+            return _userManager.GetUser(id);
         }
     }
 }
