@@ -11,19 +11,20 @@ namespace DataAccess.Mappings
             Table("Accounts");
             Id(user => user.UserId, mapper => mapper.Generator(Generators.Identity));
             Property(user => user.Firstname, mapper => mapper.Column("Firstname"));
-            Property(user => user.Lastname, mapper => mapper.Column("Lastname"));
-            Property(user => user.Password, mapper => mapper.Column("Password"));
+            Property(user => user.Lastname, mapper => mapper.Column("Lastname"));            
             Property(user => user.Email, mapper =>
             {
                 mapper.Column("Email");
                 mapper.Unique(true);
             });
-            Component(x => x.Profile, m =>
-            {
-                m.Property(profile => profile.AboutUser, mapper => mapper.Column("AboutUser"));
-                m.Property(profile => profile.Contacts, mapper => mapper.Column("Contacts"));
-                m.Property(profile => profile.Institute, mapper => mapper.Column("Institute"));
-            });
+            Property(user => user.Password, mapper => mapper.Column("Password"));
+            //Component(x => x.Profile, m =>
+            //{
+            //    m.Property(profile => profile.AboutUser, mapper => mapper.Column("AboutUser"));
+            //    m.Property(profile => profile.Contacts, mapper => mapper.Column("Contacts"));
+            //    m.Property(profile => profile.Institute, mapper => mapper.Column("Institute"));
+            //});
+            Property(user => user.RegistrationTime, mapper => mapper.Column("RegistrationDate"));
         }
     }
 }
