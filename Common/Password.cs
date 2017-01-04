@@ -11,7 +11,7 @@ namespace Common
     {
         public Password(string pass)
         {
-            if (Regex.IsMatch(pass, "^.{8,18}$"))
+            if (IsStringCorrectPassword(pass))
             {
                 var md5Hasher = MD5.Create();
 
@@ -24,7 +24,6 @@ namespace Common
                     sBuilder.Append(data[i].ToString("x2"));
                 }
 
-                // Return the hexadecimal string.
                 Value = sBuilder.ToString();
             }
             else
@@ -42,12 +41,7 @@ namespace Common
         public static Password FromPlainString(string value)
         {
             Require.NotEmpty(value, nameof(value));
-            return new Password { Value = value };
-        }
-
-        public Password GetHashed()
-        {
-            return new Password(Value);
+            return new Password(value);
         }
 
         protected bool Equals(Password other)
