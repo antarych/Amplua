@@ -22,7 +22,7 @@ namespace UserManagement.Domain
             Email = email;
             Password = password;
             RegistrationTime = registrationTime;
-            //Profile = new Profile();
+            Profile = new Profile();
         }
 
         protected Account()

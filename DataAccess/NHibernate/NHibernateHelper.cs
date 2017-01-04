@@ -28,34 +28,5 @@ namespace DataAccess
             var sessionFactory = cfg.BuildSessionFactory();
             return sessionFactory.OpenSession();
         }
-
-
-        //public void CloseSession()
-        //{
-        //    Session?.Dispose();
-        //}
-
-        //private const string SessionKey = "NHibernateSession";
-
-        //private ISession Session
-        //{
-        //    get
-        //    {
-        //        var session = HttpContext.Current?.Items[SessionKey] as ISession;
-        //        return session
-        //            ?? Thread.GetData(Thread.GetNamedDataSlot(SessionKey)) as ISession;
-        //    }
-        //    set
-        //    {
-        //        if (HttpContext.Current != null)
-        //        {
-        //            HttpContext.Current.Items[SessionKey] = value;
-        //        }
-        //        else
-        //        {
-        //            Thread.SetData(Thread.GetNamedDataSlot(SessionKey), value);
-        //        }
-        //    }
-        //}
     }
 }
