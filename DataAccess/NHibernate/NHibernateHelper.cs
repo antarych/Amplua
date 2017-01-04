@@ -7,6 +7,7 @@ using NHibernate.Dialect;
 using NHibernate.Mapping.ByCode;
 using NHibernate.Tool.hbm2ddl;
 using System.Web;
+using DataAccess.Mappings;
 
 namespace DataAccess
 {
@@ -20,7 +21,7 @@ namespace DataAccess
                 db.Dialect<MySQL5InnoDBDialect>();
             });
             var mapper = new ModelMapper();
-            mapper.AddMappings(Assembly.GetExecutingAssembly().GetExportedTypes());
+            mapper.AddMapping<UserMap>();
             HbmMapping mapping = mapper.CompileMappingForAllExplicitlyAddedEntities();
             cfg.AddMapping(mapping);
             new SchemaUpdate(cfg).Execute(true, true);
