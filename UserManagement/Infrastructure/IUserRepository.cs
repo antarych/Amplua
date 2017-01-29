@@ -1,4 +1,6 @@
-﻿using UserManagement.Domain;
+﻿using System;
+using System.Collections.Generic;
+using UserManagement.Domain;
 
 namespace UserManagement.Infrastructure
 {
@@ -7,5 +9,7 @@ namespace UserManagement.Infrastructure
         int CreateAccount(Account account);
 
         Account GetAccount(int accountId);
+
+        List<Account> GetAllAccounts(Func<Account, bool> predicate = null);
     }
 }

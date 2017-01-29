@@ -1,6 +1,6 @@
-﻿using Common;
+﻿using System.Net.Mail;
 using Journalist;
-using UserManagement.Domain;
+
 
 namespace UserManagement.Application
 {
@@ -10,7 +10,7 @@ namespace UserManagement.Application
             string lastname,
             string firstname,
             string password,
-            string email)
+            MailAddress email)
         {
             Require.NotNull(email, nameof(email));
             Require.NotEmpty(lastname, nameof(lastname));
@@ -23,7 +23,7 @@ namespace UserManagement.Application
             Password = password;
         }
 
-        public string Email { get; private set; }
+        public MailAddress Email { get; private set; }
 
         public string Lastname { get; private set; }
 

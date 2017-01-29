@@ -1,8 +1,12 @@
-﻿using DataAccess.NHibernate;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using DataAccess.NHibernate;
 using Journalist;
 using UserManagement.Infrastructure;
 using UserManagement.Domain;
 using  DataAccess.Mappings;
+using NHibernate.Linq;
 
 namespace DataAccess.Repositories
 {
@@ -32,6 +36,14 @@ namespace DataAccess.Repositories
             var session = _sessionProvider.GetCurrentSession();
             var account = session.Get<Account>(accountId);
             return account;
+        }
+
+        public List<Account> GetAllAccounts(Func<Account, bool> predicate = null)
+        {
+            var session = _sessionProvider.GetCurrentSession();
+            return predicate == null
+                ? session.Query<Account>().ToList()
+                : session.Query<Account>().Where(predicate).ToList();
         }
     }
 }

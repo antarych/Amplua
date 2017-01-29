@@ -21,5 +21,6 @@ namespace DataAccess
             var sessionFactory = cfg.BuildSessionFactory();
             return sessionFactory.OpenSession();
         }
+
     }
 }

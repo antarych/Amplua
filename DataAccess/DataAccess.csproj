@@ -82,6 +82,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Mappings\Application\MailAdressType.cs" />
     <Compile Include="Mappings\Application\PasswordType.cs" />
     <Compile Include="NHibernate\ISessionProvider.cs" />
     <Compile Include="NHibernate\NHibernateHelper.cs" />

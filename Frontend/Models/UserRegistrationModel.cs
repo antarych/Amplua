@@ -1,6 +1,7 @@
 ﻿
 
 using System.ComponentModel.DataAnnotations;
+using System.Net.Mail;
 
 namespace Frontend.Models
 {
@@ -13,7 +14,7 @@ namespace Frontend.Models
         public string LastName { get; set; }
 
         [EmailAddress]
-        public string Email { get; set; }
+        public MailAddress Email { get; set; }
 
         [MaxLength(50)]
         public string Password { get; set; }

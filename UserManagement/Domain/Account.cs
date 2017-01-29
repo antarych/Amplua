@@ -1,6 +1,7 @@
 ﻿using System;
 using Common;
 using Journalist;
+using System.Net.Mail;
 
 namespace UserManagement.Domain
 {
@@ -8,7 +9,7 @@ namespace UserManagement.Domain
     {
         public Account(string firstname,
             string lastname,
-            string email,
+            MailAddress email,
             Password password,
             DateTime registrationTime)
         {
@@ -35,7 +36,7 @@ namespace UserManagement.Domain
 
         public virtual string Lastname { get; protected set; }
 
-        public virtual string Email { get; protected set; }
+        public virtual MailAddress Email { get; protected set; }
 
         public virtual Password Password { get; set; }
 

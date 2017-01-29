@@ -1,9 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 using Common;
 using UserManagement.Application;
 using UserManagement.Infrastructure;
 using Journalist;
-using NHibernate;
 
 namespace UserManagement.Domain
 {
@@ -36,6 +36,11 @@ namespace UserManagement.Domain
             var account = _userRepository.GetAccount(userId);
 
             return account;
+        }
+
+        public IEnumerable<Account> GetAccounts(Func<Account, bool> predicate = null)
+        {
+            return _userRepository.GetAllAccounts(predicate);
         }
     }
 }

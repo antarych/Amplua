@@ -18,7 +18,7 @@ namespace Frontend.Controllers
 
         [HttpPost]
         [Route("registration")]
-        public IHttpActionResult RegisterNewUser([FromBody] UserRegistrationModel user)
+        public IHttpActionResult RegisterNewUser([FromBody] UserRegistrationModel userRegistrationModel)
         {
             if (!ModelState.IsValid)
             {
@@ -26,10 +26,10 @@ namespace Frontend.Controllers
             }
 
             var accountRequest = new CreateAccountRequest(
-                user.FirstName,
-                user.LastName,
-                user.Password,
-                user.Email);
+                userRegistrationModel.FirstName,
+                userRegistrationModel.LastName,
+                userRegistrationModel.Password,
+                userRegistrationModel.Email);
 
             _userManager.CreateUser(accountRequest);
 
@@ -38,9 +38,10 @@ namespace Frontend.Controllers
 
         [HttpGet]
         [Route("user/{id}")]
-        public Account GetUser(int id)
+        public UserPresentationModel GetUser(int id)
         {
-            return _userManager.GetUser(id);
+            var account = _userManager.GetUser(id);
+            return new UserPresentationModel(account.Firstname, account.Lastname, account.Email, account.Profile);
         }
     }
 }
