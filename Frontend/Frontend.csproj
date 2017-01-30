@@ -177,6 +177,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Data\SettingsReader.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Authorization\AmpluaIdentity.cs" />
     <Compile Include="Authorization\AmpluaPrincipal.cs" />
@@ -184,10 +185,12 @@
     <Compile Include="Authorization\AuthorizationAttribute.cs" />
     <Compile Include="Authorization\AuthorizationExtensions.cs" />
     <Compile Include="Controllers\AuthorizationController.cs" />
+    <Compile Include="Controllers\FileController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\ImageModel.cs" />
     <Compile Include="Models\LoginInformation.cs" />
     <Compile Include="Models\UserPresentationModel.cs" />
     <Compile Include="Models\UserRegistrationModel.cs" />
@@ -198,6 +201,7 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="settings.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -205,9 +209,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\Common\Common.csproj">
       <Project>{af17b732-d253-4e00-90c6-d7434163cd1a}</Project>
@@ -216,6 +218,10 @@
     <ProjectReference Include="..\DataAccess\DataAccess.csproj">
       <Project>{7c4e9a3c-5409-400e-89bf-5953a60cb5e2}</Project>
       <Name>DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FileManagement\FileManagement.csproj">
+      <Project>{45e60ca3-d7d4-498a-946b-629ac72b916a}</Project>
+      <Name>FileManagement</Name>
     </ProjectReference>
     <ProjectReference Include="..\UserManagement\UserManagement.csproj">
       <Project>{0b1742fd-9d35-433e-a988-e32c442949e5}</Project>

@@ -81,7 +81,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Avatar.cs" />
+    <Compile Include="ApplicationLocationSettings.cs" />
+    <Compile Include="Image.cs" />
     <Compile Include="Password.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TokenGenerator.cs" />

@@ -2,9 +2,12 @@
 using System.Configuration;
 using SimpleInjector;
 using System.Web.Http;
+using Common;
 using DataAccess;
 using DataAccess.NHibernate;
 using DataAccess.Repositories;
+using FileManagement;
+using Frontend.App_Data;
 using SimpleInjector.Integration.WebApi;
 using UserManagement.Application;
 using UserManagement.Domain;
@@ -19,7 +22,8 @@ namespace Frontend.App_Start
             var container = new Container();
             container.Options.DefaultScopedLifestyle = new WebApiRequestLifestyle();
             container.RegisterWebApiControllers(GlobalConfiguration.Configuration);
-            SetupDependencies(container);
+            RegisterSettings(container);
+            SetupDependencies(container);            
             container.Verify();
             GlobalConfiguration.Configuration.DependencyResolver = new SimpleInjectorWebApiDependencyResolver(container);
         }
@@ -31,9 +35,21 @@ namespace Frontend.App_Start
             container.Register<ISessionProvider, SessionProvider>();
             container.Register<NHibernateHelper>(() => new NHibernateHelper());
             container.Register<IAuthorizer>(() => new Authorizer(
-                TimeSpan.FromSeconds(int.Parse(ConfigurationManager.AppSettings["Authorizer.TokenLifeTimeInSeconds"])),
-                container.GetInstance<IUserRepository>()),
+                    TimeSpan.FromSeconds(int.Parse(ConfigurationManager.AppSettings["Authorizer.TokenLifeTimeInSeconds"])),
+                    container.GetInstance<IUserRepository>()),
                 Lifestyle.Singleton);
+            container.Register<IFileManager, FileManager>(Lifestyle.Singleton);
+            //container.Register<IImageResizer>(
+            //    () =>
+            //        new ImageResizer(500, container.GetInstance<FileStorage>(),
+            //            container.GetInstance<ApplicationLocationSettings>()), Lifestyle.Singleton);
+        }
+
+        private static void RegisterSettings(Container container)
+        {
+            var settings = ConfigurationManager.AppSettings;
+            container.Register(() => SettingsReader.ReadFileStorage(settings), Lifestyle.Singleton);
+
         }
     }
 }

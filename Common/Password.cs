@@ -32,11 +32,11 @@ namespace Common
             }
         }
 
-        public Password()
+        protected Password()
         {
         }
 
-        public virtual string Value { get; protected set; }
+        public string Value { get; protected set; }
 
         public static Password FromPlainString(string value)
         {

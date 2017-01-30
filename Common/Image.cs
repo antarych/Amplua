@@ -2,20 +2,20 @@
 
 namespace Common
 {
-    public class Avatar
+    public class Image
     {
-        public Avatar()
+        public Image()
         {
             
         }
 
-        public Avatar(Uri bigImage, Uri smallImage)
+        public Image(Uri bigImage)
         {
             BigImage = bigImage;
-            SmallImage = smallImage;
+            //SmallImage = smallImage;
         }
 
         public virtual Uri BigImage { get; set; }
-        public virtual Uri SmallImage { get; set; }
+        //public virtual Uri SmallImage { get; set; }
     }
 }
