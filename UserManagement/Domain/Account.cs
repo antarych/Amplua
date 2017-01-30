@@ -11,7 +11,9 @@ namespace UserManagement.Domain
             string lastname,
             MailAddress email,
             Password password,
-            DateTime registrationTime)
+            DateTime registrationTime,
+            AccountRoles role,
+            ConfirmationStatus confirmationStatus)
         {
             Require.NotEmpty(firstname, nameof(firstname));
             Require.NotEmpty(lastname, nameof(lastname));
@@ -24,6 +26,8 @@ namespace UserManagement.Domain
             Password = password;
             RegistrationTime = registrationTime;
             Profile = new Profile();
+            Role = role;
+            ConfirmationStatus = confirmationStatus;
         }
 
         protected Account()
@@ -43,5 +47,9 @@ namespace UserManagement.Domain
         public virtual DateTime RegistrationTime { get; protected set; }
 
         public virtual Profile Profile { get; set; }
+
+        public virtual AccountRoles Role { get; set; }
+
+        public virtual ConfirmationStatus ConfirmationStatus { get; set; }
     }
 }

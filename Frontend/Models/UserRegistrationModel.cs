@@ -14,7 +14,7 @@ namespace Frontend.Models
         public string LastName { get; set; }
 
         [EmailAddress]
-        public MailAddress Email { get; set; }
+        public string Email { get; set; }
 
         [MaxLength(50)]
         public string Password { get; set; }

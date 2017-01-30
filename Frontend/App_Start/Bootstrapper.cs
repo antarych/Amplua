@@ -1,4 +1,6 @@
-﻿using SimpleInjector;
+﻿using System;
+using System.Configuration;
+using SimpleInjector;
 using System.Web.Http;
 using DataAccess;
 using DataAccess.NHibernate;
@@ -28,6 +30,10 @@ namespace Frontend.App_Start
             container.Register<IUserManager, UserManager>();
             container.Register<ISessionProvider, SessionProvider>();
             container.Register<NHibernateHelper>(() => new NHibernateHelper());
+            container.Register<IAuthorizer>(() => new Authorizer(
+                TimeSpan.FromSeconds(int.Parse(ConfigurationManager.AppSettings["Authorizer.TokenLifeTimeInSeconds"])),
+                container.GetInstance<IUserRepository>()),
+                Lifestyle.Singleton);
         }
     }
 }

@@ -25,7 +25,9 @@ namespace UserManagement.Domain
                 request.Lastname,
                 request.Email,
                 Password.FromPlainString(request.Password),
-                DateTime.Now);
+                DateTime.Now,
+                AccountRoles.User, 
+                ConfirmationStatus.NotConfirmed);
             var userId = _userRepository.CreateAccount(newAccount);
         }
 

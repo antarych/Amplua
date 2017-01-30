@@ -1,4 +1,5 @@
-﻿using System.Web.Http;
+﻿using System.Net.Mail;
+using System.Web.Http;
 using UserManagement.Application;
 using Frontend.Models;
 using UserManagement.Domain;
@@ -29,7 +30,7 @@ namespace Frontend.Controllers
                 userRegistrationModel.FirstName,
                 userRegistrationModel.LastName,
                 userRegistrationModel.Password,
-                userRegistrationModel.Email);
+                new MailAddress(userRegistrationModel.Email));
 
             _userManager.CreateUser(accountRequest);
 

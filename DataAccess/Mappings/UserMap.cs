@@ -33,6 +33,8 @@ namespace DataAccess.Mappings
                 m.Property(profile => profile.Institute, mapper => mapper.Column("Institute"));
             });
             Property(user => user.RegistrationTime, mapper => mapper.Column("RegistrationDate"));
+            Property(user => user.Role, mapper => mapper.Column("Role"));
+            Property(user => user.ConfirmationStatus, mapper => mapper.Column("Confirmation_status"));
         }
     }
 }
