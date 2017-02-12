@@ -1,7 +1,5 @@
-﻿
+﻿using System.ComponentModel.DataAnnotations;
 
-using System.ComponentModel.DataAnnotations;
-using System.Net.Mail;
 
 namespace Frontend.Models
 {

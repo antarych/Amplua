@@ -84,11 +84,13 @@
   <ItemGroup>
     <Compile Include="Mappings\Application\MailAdressType.cs" />
     <Compile Include="Mappings\Application\PasswordType.cs" />
+    <Compile Include="Mappings\ProjectMap.cs" />
     <Compile Include="NHibernate\ISessionProvider.cs" />
     <Compile Include="NHibernate\NHibernateHelper.cs" />
     <Compile Include="Mappings\UserMap.cs" />
     <Compile Include="NHibernate\SessionProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\ProjectRepository.cs" />
     <Compile Include="Repositories\UserRepository.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -99,6 +101,10 @@
     <ProjectReference Include="..\Common\Common.csproj">
       <Project>{af17b732-d253-4e00-90c6-d7434163cd1a}</Project>
       <Name>Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ProjectManagement\ProjectManagement.csproj">
+      <Project>{9778ab47-1d76-48bb-947b-3d776969c925}</Project>
+      <Name>ProjectManagement</Name>
     </ProjectReference>
     <ProjectReference Include="..\UserManagement\UserManagement.csproj">
       <Project>{0b1742fd-9d35-433e-a988-e32c442949e5}</Project>

@@ -1,7 +1,6 @@
 ﻿using DataAccess.Mappings.Application;
 using NHibernate.Mapping.ByCode;
 using NHibernate.Mapping.ByCode.Conformist;
-using NHibernate.Type;
 using UserManagement.Domain;
 
 namespace DataAccess.Mappings
