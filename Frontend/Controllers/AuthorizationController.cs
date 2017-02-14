@@ -23,16 +23,9 @@ namespace Frontend.Controllers
         [Route("auth")]
         public AuthorizationTokenInfo Authorize([FromBody] LoginInformation loginInformation)
         {
-            try
-            {
-                var token = _authorizer.Authorize(loginInformation.Email,
-                    new Password(loginInformation.Password));
-                return token;
-            }
-            finally 
-            {
-                throw new Exception("Error");
-            }
+            var token = _authorizer.Authorize(loginInformation.Email,
+                new Password(loginInformation.Password));
+            return token;
         }
     }
 }

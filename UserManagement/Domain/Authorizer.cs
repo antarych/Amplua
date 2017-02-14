@@ -50,22 +50,22 @@ namespace UserManagement.Domain
         {
             Require.NotNull(password, nameof(password));
 
-            var userAccount = _userRepository
+            var userAccounts = _userRepository
                 .GetAllAccounts(account => account.Email.Address == mail &&
-                                           account.ConfirmationStatus == ConfirmationStatus.MailConfirmed).SingleOrDefault();
-            if (userAccount == null)
+                                           account.ConfirmationStatus == ConfirmationStatus.MailConfirmed).Single();
+            if (userAccounts == null)
             {
                 throw new UnauthorizedAccessException("Account not found");
             }
-            if (userAccount.Password != password)
+            if (userAccounts.Password.Value != password.Value)
             {
                 throw new UnauthorizedAccessException("Incorrect password");
             }
 
-            var userToken = GetTokenByUserId(userAccount.UserId);
+            var userToken = GetTokenByUserId(userAccounts.UserId);
             if (userToken == null)
             {
-                userToken = GenerateNewToken(userAccount);
+                userToken = GenerateNewToken(userAccounts);
                 _tokensWithGenerationTime.AddOrUpdate(userToken.Token, userToken, (oldToken, info) => userToken);
             }
             return userToken;

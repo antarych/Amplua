@@ -9,7 +9,7 @@ namespace UserManagement.Application
     {
         Account GetUser(int userId);
 
-        void CreateUser(CreateAccountRequest request);
+        int CreateUser(CreateAccountRequest request);
 
         IEnumerable<Account> GetAccounts(Func<Account, bool> predicate = null);
     }

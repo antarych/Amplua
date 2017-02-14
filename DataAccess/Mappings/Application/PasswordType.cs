@@ -30,7 +30,10 @@ namespace DataAccess.Mappings.Application
                 return null;
             }
 
-            var password = Password.FromPlainString(property0.ToString());
+            var password = new Password
+            {
+                Value = property0.ToString()
+            };
 
             return password;
         }

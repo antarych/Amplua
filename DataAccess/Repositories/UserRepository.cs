@@ -5,7 +5,6 @@ using DataAccess.NHibernate;
 using Journalist;
 using UserManagement.Infrastructure;
 using UserManagement.Domain;
-using  DataAccess.Mappings;
 using NHibernate.Linq;
 
 namespace DataAccess.Repositories

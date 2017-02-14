@@ -32,35 +32,11 @@ namespace Common
             }
         }
 
-        protected Password()
+        public Password()
         {
         }
 
-        public string Value { get; protected set; }
-
-        public static Password FromPlainString(string value)
-        {
-            Require.NotEmpty(value, nameof(value));
-            return new Password(value);
-        }
-
-        protected bool Equals(Password other)
-        {
-            return string.Equals(Value, other.Value);
-        }
-
-        public override bool Equals(object obj)
-        {
-            if (ReferenceEquals(null, obj)) return false;
-            if (ReferenceEquals(this, obj)) return true;
-            if (obj.GetType() != this.GetType()) return false;
-            return Equals((Password)obj);
-        }
-
-        public override int GetHashCode()
-        {
-            return (Value != null ? Value.GetHashCode() : 0);
-        }
+        public virtual string Value { get; set; }
 
         public static bool IsStringCorrectPassword(string passwordToCheck)
         {

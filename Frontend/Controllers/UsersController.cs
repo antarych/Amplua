@@ -32,9 +32,9 @@ namespace Frontend.Controllers
                 userRegistrationModel.Password,
                 new MailAddress(userRegistrationModel.Email));
 
-            _userManager.CreateUser(accountRequest);
+            var createdUserId = _userManager.CreateUser(accountRequest);
 
-            return Ok();
+            return Ok(createdUserId);
         }
 
         [HttpGet]

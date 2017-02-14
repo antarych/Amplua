@@ -16,7 +16,7 @@ namespace UserManagement.Domain
             _userRepository = userRepository;
         }
 
-        public void CreateUser(CreateAccountRequest request)
+        public int CreateUser(CreateAccountRequest request)
         {
             Require.NotNull(request, nameof(request));
 
@@ -24,11 +24,11 @@ namespace UserManagement.Domain
                 request.Firstname,
                 request.Lastname,
                 request.Email,
-                Password.FromPlainString(request.Password),
+                new Password(request.Password), 
                 DateTime.Now,
                 AccountRoles.User, 
                 ConfirmationStatus.NotConfirmed);
-            var userId = _userRepository.CreateAccount(newAccount);
+            return _userRepository.CreateAccount(newAccount);
         }
 
         public Account GetUser(int userId)

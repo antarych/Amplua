@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Journalist.Options;
 using UserManagement.Domain;
 
 namespace ProjectManagement.Domain
@@ -9,8 +10,8 @@ namespace ProjectManagement.Domain
             int leadersId,
             string projectName,
             string projectDescription,
-            List<int> members,
-            List<Vacancy> vacancies,
+            Option<ISet<int>> members,
+            ISet<Vacancy> vacancies,
             int userId,           
             bool fromOrganization,
             int organizationId = 0)
@@ -25,14 +26,14 @@ namespace ProjectManagement.Domain
             OrganizationId = organizationId;            
         }
 
-        public int ProjectId { get; protected set; }
-        public int LeadersId { get; protected set; }
-        public string ProjectName { get; protected set; }
-        public string ProjectDescription { get; protected set; }
-        public List<int> Members { get; protected set; }
-        public List<Vacancy> Vacancies { get; protected set; }
-        public int UserId { get; protected set; }
-        public bool FromOrganization { get; protected set; }
-        public int OrganizationId { get; protected set; }
+        public virtual int ProjectId { get; protected set; }
+        public virtual int LeadersId { get; protected set; }
+        public virtual string ProjectName { get; protected set; }
+        public virtual string ProjectDescription { get; protected set; }
+        public virtual Option<ISet<int>> Members { get; protected set; }
+        public virtual ISet<Vacancy> Vacancies { get; protected set; }
+        public virtual int UserId { get; protected set; }
+        public virtual bool FromOrganization { get; protected set; }
+        public virtual int OrganizationId { get; protected set; }
     }
 }

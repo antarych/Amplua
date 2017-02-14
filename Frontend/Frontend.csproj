@@ -186,12 +186,14 @@
     <Compile Include="Authorization\AuthorizationExtensions.cs" />
     <Compile Include="Controllers\AuthorizationController.cs" />
     <Compile Include="Controllers\FileController.cs" />
+    <Compile Include="Controllers\ProjectController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\ImageModel.cs" />
     <Compile Include="Models\LoginInformation.cs" />
+    <Compile Include="Models\ProjectCreationModel.cs" />
     <Compile Include="Models\UserPresentationModel.cs" />
     <Compile Include="Models\UserRegistrationModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -222,6 +224,10 @@
     <ProjectReference Include="..\FileManagement\FileManagement.csproj">
       <Project>{45e60ca3-d7d4-498a-946b-629ac72b916a}</Project>
       <Name>FileManagement</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ProjectManagement\ProjectManagement.csproj">
+      <Project>{9778ab47-1d76-48bb-947b-3d776969c925}</Project>
+      <Name>ProjectManagement</Name>
     </ProjectReference>
     <ProjectReference Include="..\UserManagement\UserManagement.csproj">
       <Project>{0b1742fd-9d35-433e-a988-e32c442949e5}</Project>

@@ -16,7 +16,6 @@ namespace FileManagement
             Require.NotNull(fileStorage, nameof(fileStorage));
 
             _fileStorage = fileStorage;
-            //_imageResizer = imageResizer;
             CreateFolder();
         }
 
@@ -98,6 +97,5 @@ namespace FileManagement
         }
 
         private readonly FileStorage _fileStorage;
-        private readonly IImageResizer _imageResizer;
     }
 }
